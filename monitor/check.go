@@ -11,11 +11,11 @@ import (
 )
 
 
-// Check all tracked sites every 10 minutes.
+// Check all tracked sites every 48 minutes!..
 var _ = cron.NewJob("check-all", cron.JobConfig{
 	Title:    "Check all sites",
 	Endpoint: CheckAll,
-	Every:    10 * cron.Minute,
+	Every:    48 * cron.Minute,
 })
 
 // Check checks a single site.
