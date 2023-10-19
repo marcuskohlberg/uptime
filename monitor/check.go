@@ -4,18 +4,16 @@ import (
 	"context"
 
 	"encore.app/site"
-	"encore.dev/storage/sqldb"
 	"encore.dev/cron"
+	"encore.dev/storage/sqldb"
 	"golang.org/x/sync/errgroup"
-
 )
-
 
 // Check all tracked sites every 5 minutes!..
 var _ = cron.NewJob("check-all", cron.JobConfig{
 	Title:    "Check all sites",
 	Endpoint: CheckAll,
-	Every:    5 * cron.Minute,
+	Every:    8 * cron.Minute,
 })
 
 // Check checks a single site.
@@ -62,4 +60,3 @@ func CheckAll(ctx context.Context) error {
 	}
 	return g.Wait()
 }
-
