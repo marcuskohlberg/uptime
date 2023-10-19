@@ -13,7 +13,7 @@ import (
 var _ = cron.NewJob("check-all", cron.JobConfig{
 	Title:    "Check all sites",
 	Endpoint: CheckAll,
-	Every:    10 * cron.Minute,
+	Every:    8 * cron.Minute,
 })
 
 // Check checks a single site.
